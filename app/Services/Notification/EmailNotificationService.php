@@ -5,7 +5,6 @@ namespace App\Services\Notification;
 use App\Dto\Notification\NotificationDto;
 use App\Mail\LogInNotification;
 use App\Services\Interfaces\SendNotificationServiceInterface;
-use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\Mail;
 
 class EmailNotificationService implements SendNotificationServiceInterface
@@ -18,7 +17,7 @@ class EmailNotificationService implements SendNotificationServiceInterface
             'title' => 'Log in MAIL'
        ]);
 
-       Mail::to($dto->email)->send($mail);
+       Mail::to($dto->to)->send($mail);
        
     }
 }

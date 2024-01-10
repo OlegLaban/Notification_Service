@@ -17,10 +17,10 @@ class NotificationController extends Controller
     {
         try {
             $dto = new NotificationDto(
-                email: $request->input('email'),
+                to: $request->input('email'),
                 text: $request->input('text')
             );
-            
+
             $notificationService->send(NotificationTypeCases::email, $dto);
         } catch(NotificationMethodNotFound) {
             return response()->json([], Response::HTTP_BAD_REQUEST);
