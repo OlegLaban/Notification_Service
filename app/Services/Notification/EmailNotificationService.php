@@ -14,7 +14,7 @@ class EmailNotificationService implements SendNotificationServiceInterface
     {
        $mail = new LogInNotification([
             'subject' => 'Log in notification',
-            'body' => 'You had login in some account',
+            'body' => $dto->text,
             'title' => 'Log in MAIL'
        ]);
 
